@@ -1,0 +1,24 @@
+# Gitpod configuration for Go Order Service
+
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Install & Run
+    init: go mod download
+    command: go run ./cmd/main.go
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+  - port: 9090
+    onOpen: open-preview
+  - port: 5432
+    visibility: private
+  - port: 9092
+    visibility: private
+
+vscode:
+  extensions:
+    - golang.go
+    - ms-azuretools.vscode-docker
